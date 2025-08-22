@@ -3,8 +3,8 @@
 - You can add/remove players, teleport them to another place (with optional teleport data) and other essentials function you can use!
 
 # 📘 Basic Documentation
-## Party.new() -> Party
-- Creates a new party object.
+## Party.new(name: string, players: {[number]: Player}, information: {[any]: any}?) -> Party
+- Creates a new party object with a name, players (optional) and information (also optional)
 
 ## Party.isPlayerInParty(player: Player, party: Party?) -> boolean
 - Checks if a player is in a party.
