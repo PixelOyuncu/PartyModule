@@ -18,6 +18,7 @@
 
 ## Party:Teleport(placeId: number)
 - Teleports all the players inside of the party to a place with its place id.
+- Uses SafeTeleport to ensure everyone is teleported regardless of poor network conditions or other errors
 - The party is destroyed after this function is called.
 
 ## Party:Destroy()
