@@ -5,10 +5,7 @@
 # 📘 Basic Documentation
 ## Party.new(name: string, players: {[number]: Player}, information: {[any]: any}?) -> Party
 - Creates a new party object with a name, players (optional) and information (also optional)
-
-## Party.isPlayerInParty(player: Player, party: Party?) -> boolean
-- Checks if a player is in a party.
-- Also has an additional party parameter to only check for that party.
+- information will be used to store teleport data when Party:Teleport() is called, leave it empty if you do not want to store teleport data.
 
 ## Party:AddPlayer(player: Player)
 - Adds a player to the party object.
@@ -23,6 +20,18 @@
 
 ## Party:Destroy()
 - Destroys the party object, making it unusable.
+
+# 📄 Example Usage
+```
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local PartyModule = require(script.PartyModule) -- this path may be different for you
+
+Players.PlayerAdded:Connect(function(player: Player)
+  local newParty = PartyModule.new(`{player.DisplayName}'s party`, {player), {Mode = "Easy"})
+end)
+```
 
 # ➕ Extra
 - This is my first time using OOP and there may be better modules out there, I am just trying my best! :D
