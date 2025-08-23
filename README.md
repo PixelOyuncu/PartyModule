@@ -3,9 +3,9 @@
 - You can add/remove players, teleport them to another place (with optional teleport data) and more!
 
 # ❓ Installation / Usage
-**1.** Install the latest version in releases tab.
-**2.** Drag the `.rbxm` file to Roblox Studio
-**3.** Place it under ServerScriptService or under a script
+- **1.** Install the latest version in releases tab.
+- **2.** Drag the `.rbxm` file to Roblox Studio
+- **3.** Place it under ServerScriptService or under a script
 [⚠️] **Do not put this module on ReplicatedStorage or on a place the players can access!**
 
 # 📘 Basic Documentation
