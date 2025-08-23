@@ -2,6 +2,12 @@
 - PartyModule is a way to simplify the creation of a party system in your roblox game.
 - You can add/remove players, teleport them to another place (with optional teleport data) and more!
 
+# ❓ Installation / Usage
+**1.** Install the latest version in releases tab.
+**2.** Drag the `.rbxm` file to Roblox Studio
+**3.** Place it under ServerScriptService or under a script
+[⚠️] **Do not put this module on ReplicatedStorage or on a place the players can access!**
+
 # 📘 Basic Documentation
 ## Party.new(name: string, players: {[number]: Player}?, information: {[any]: any}?, owner: Player?, playerLimit: number?, password: string?, visible: boolean?) -> Party
 - Creates a new party object with a name, players (optional) and information. (also optional)
