@@ -9,7 +9,7 @@
 - players, playerLimit and owner are essential but not required, while password and visible is completely optional.
 - The party object's structure will be like this:
 
-```
+```lua
     Name: string,
 	  Players: {[number]: Player},
 	  Information: {[any]: any},
@@ -19,6 +19,9 @@
 	  PlayerLimit: number?,
 	  Visible: boolean,
 ```
+## Party.getParties(showHidden: boolean?) -> {[number]: Party}
+- Returns the parties that are available.
+- Use the 'showHidden' to show non-visible parties.
 
 ## Party.isPlayerInParty(player: Player, party: Party) -> boolean
 - Checks if the provided player is in a party.
@@ -32,11 +35,14 @@
 - Returns the party via the provided partyId.
 - Returns **nil** if it was not found.
 
-## Party:AddPlayer(player: Player)
+## Party:AddPlayer(player: Player, bypassLimit: boolean?)
 - Adds a player to the party object.
+- You can use the optional 'bypassLimit' to bypass the player limit when adding players.
 
 ## Party:RemovePlayer(player: Player)
-- Removes a player to the party object. (wow)
+- Removes a player to the party object.
+- If the player is the owner, the ownership will be given to a random person in the party.
+- If the party contains 0 player after the player leaves, it will automatically be removed.
 
 ## Party:Teleport(placeId: number)
 - Teleports all the players inside of the party to a place with its place id.
@@ -55,15 +61,35 @@
 - Destroys the party object, making it unusable.
 
 # 📄 Example Usage
-```
-local Players = game:GetService("Players")
+```lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local PartyModule = require(script.PartyModule) -- this path may be different for you
+local PartyModule = require(script.PartyModule) -- the path of the module
 
-Players.PlayerAdded:Connect(function(player: Player)
-  local newParty = PartyModule.new(`{player.DisplayName}'s party`, {player), {Mode = "Easy"})
-end)
+ReplicatedStorage.Functions.CreateParty.OnServerInvoke = function(player)
+	local playerInParty = PartyModule.isPlayerInParty(player) -- check if player is already in a party
+	if playerInParty then return end
+	
+	local newParty = PartyModule.new(`{player.DisplayName}'s party`, {player}, nil, player)
+end
+
+ReplicatedStorage.Functions.JoinParty.OnServerInvoke = function(player, partyId)
+	local party = PartyModule.findParty(partyId)
+	if party then
+		party:AddPlayer(player)
+	end
+end
+
+ReplicatedStorage.Functions.LeaveParty.OnServerInvoke = function(player)
+	local party = PartyModule.getPartyFromPlayer(player)
+	if party then
+		party:RemovePlayer(player)
+	end
+end
+
+ReplicatedStorage.Functions.GetParties.OnServerInvoke = function(player)
+	return PartyModule.getParties(false) -- hide the non-visible parties from the player
+end
 ```
 
 # ➕ Extra
