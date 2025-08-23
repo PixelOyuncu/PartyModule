@@ -6,7 +6,7 @@
 - **1.** Install the latest version in releases tab.
 - **2.** Drag the `.rbxm` file to Roblox Studio
 - **3.** Place it under ServerScriptService or under a script
-[⚠️] **Do not put this module on ReplicatedStorage or on a place the players can access!**
+- [⚠️] **Do not put this module on ReplicatedStorage or on a place the players can access!**
 
 # 📘 Basic Documentation
 ## Party.new(name: string, players: {[number]: Player}?, information: {[any]: any}?, owner: Player?, playerLimit: number?, password: string?, visible: boolean?) -> Party
@@ -57,7 +57,7 @@
 
 ## Party:Edit(contents: {})
 - Edits the party contents.
-[⚠️] **Try not to edit essential data unless you really need to. (partyId and functions)**
+- [⚠️] **Try not to edit essential data unless you really need to. (partyId and functions)**
 
 ## Party:EligibleToJoin(player: Player, password: string?) -> boolean
 - Checks if the player is able to join the party by checking the password, the playerLimit and if the player is in a party.
