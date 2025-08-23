@@ -1,4 +1,4 @@
-# <img width="64" height="64" alt="PartyModule" src="https://github.com/user-attachments/assets/47ffaf63-a475-43ae-9f41-671257b27840"/> PartyModule
+# <img width="32" height="32" alt="PartyModule" src="https://github.com/user-attachments/assets/47ffaf63-a475-43ae-9f41-671257b27840"/> PartyModule
 
 - PartyModule is a way to simplify the creation of a party system in your roblox game.
 - You can add/remove players, teleport them to another place (with optional teleport data) and more!
