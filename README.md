@@ -51,9 +51,10 @@
 - If the player is the owner, the ownership will be given to a random person in the party.
 - If the party contains 0 player after the player leaves, it will automatically be removed.
 
-## Party:Teleport(placeId: number)
+## Party:Teleport(placeId: number, teleportData = {[any]: any}?)
 - Teleports all the players inside of the party to a place with its place id.
 - Uses SafeTeleport to ensure everyone is teleported regardless of poor network conditions or other errors.
+- Has an optional teleportData parameter in case you want to store teleportData.
 - The party is destroyed after this function is called.
 
 ## Party:Edit(contents: {})
